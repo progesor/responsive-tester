@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".", // ✅ enable path aliases
+    "paths": {
+      "@/*": ["src/*"] // ✅ matches vite config
+    }
+  },
+  "include": ["src", "electron"]
+}

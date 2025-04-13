@@ -1,0 +1,2 @@
+// electron/preload.ts
+export {};
