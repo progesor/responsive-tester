@@ -50,7 +50,7 @@ A modern developer tool to preview websites across multiple devices in real-time
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourname/responsive-tester.git
+git clone https://github.com/progesor/responsive-tester.git
 cd responsive-tester
 ```
 
