@@ -27,11 +27,14 @@ A modern developer tool to preview websites across multiple devices in real-time
 - 🔁 **Import / Export Layouts**  
   Share JSON-based presets or archive your testing configurations.
 
-- 🔧 **Settings Panel**  
+- 🔧 **Settings Panel**
   Set default zoom, theme, layout behaviors, and reset all with one click.
 
-- 🔥 **Toast Notifications**  
+- 🔥 **Toast Notifications**
   Smooth user feedback using [react-hot-toast](https://react-hot-toast.com)
+
+- 📸 **One-click Screenshots**
+  Capture any device frame and automatically download the image while copying it to your clipboard.
 
 ---
 
@@ -80,7 +83,7 @@ npm run dev
 | ✅ | Custom device creation |
 | ✅ | Settings panel for default preferences |
 | ⏳ | Auto-reload iframe toggle |
-| ⏳ | Enhanced screenshot capability |
+| ✅ | Enhanced screenshot capability |
 | ⏳ | Electron version (Desktop App) |
 | ⏳ | PWA support (Installable Web App) |
 | ⏳ | AI prompt assistance for breakpoints |
@@ -104,7 +107,7 @@ src/
 
 ## 📸 Screenshots
 
-> _(Coming Soon)_
+Click the **📸** icon on any device frame to instantly grab a screenshot. The image downloads and is copied to your clipboard for quick sharing.
 
 ---
 
