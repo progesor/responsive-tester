@@ -7,6 +7,8 @@ interface SettingsPanelProps {
     onToggleFitToWidth: () => void;
     defaultZoom: number;
     onSetDefaultZoom: (z: number) => void;
+    autoReload: boolean;
+    onToggleAutoReload: () => void;
     onResetAll: () => void;
 }
 
@@ -17,6 +19,8 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                                                          onToggleFitToWidth,
                                                          defaultZoom,
                                                          onSetDefaultZoom,
+                                                         autoReload,
+                                                         onToggleAutoReload,
                                                          onResetAll,
                                                      }) => {
     return (
@@ -32,6 +36,11 @@ const SettingsPanel: React.FC<SettingsPanelProps> = ({
                 <label className="flex items-center gap-2">
                     <input type="checkbox" checked={isDarkMode} onChange={onToggleDarkMode}/>
                     Enable Dark Mode
+                </label>
+
+                <label className="flex items-center gap-2">
+                    <input type="checkbox" checked={autoReload} onChange={onToggleAutoReload}/>
+                    Auto Reload Frames
                 </label>
 
                 <div className="flex items-center gap-2">

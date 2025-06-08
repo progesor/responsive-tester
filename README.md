@@ -79,7 +79,7 @@ npm run dev
 | ✅ | Combined modal-based preset manager |
 | ✅ | Custom device creation |
 | ✅ | Settings panel for default preferences |
-| ⏳ | Auto-reload iframe toggle |
+| ✅ | Auto-reload iframe toggle |
 | ⏳ | Enhanced screenshot capability |
 | ⏳ | Electron version (Desktop App) |
 | ⏳ | PWA support (Installable Web App) |
