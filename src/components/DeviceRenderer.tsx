@@ -8,6 +8,7 @@ interface Props {
     activeTabId: string;
     url: string;
     fitToWidth: boolean;
+    autoReload: boolean;
     onRotate: (id: string) => void;
     onRemove: (id: string) => void;
     onZoomChange: (id: string, zoom: number) => void;
@@ -20,6 +21,7 @@ const DeviceRenderer: React.FC<Props> = ({
                                              activeTabId,
                                              url,
                                              fitToWidth,
+                                             autoReload,
                                              onRotate,
                                              onRemove,
                                              onZoomChange,
@@ -52,6 +54,7 @@ const DeviceRenderer: React.FC<Props> = ({
                             {...device}
                             url={url}
                             fitToWidth={fitToWidth}
+                            autoReload={autoReload}
                             onRotate={() => onRotate(device.id)}
                             onRemove={() => onRemove(device.id)}
                             onZoomChange={(z) => onZoomChange(device.id, z)}
@@ -70,6 +73,7 @@ const DeviceRenderer: React.FC<Props> = ({
                         {...device}
                         url={url}
                         fitToWidth={fitToWidth}
+                        autoReload={autoReload}
                         onRotate={() => onRotate(device.id)}
                         onRemove={() => onRemove(device.id)}
                         onZoomChange={(z) => onZoomChange(device.id, z)}

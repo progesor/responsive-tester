@@ -29,6 +29,7 @@ const PreviewPage: React.FC = () => {
     const [showPresetModal, setShowPresetModal] = useState(false);
     const [showSettings, setShowSettings] = useState(false);
     const [defaultZoom, setDefaultZoom] = usePersistedState<number>('default-zoom', 1);
+    const [autoReload, setAutoReload] = usePersistedState<boolean>('responsive-auto-reload', false);
 
 
 
@@ -203,6 +204,8 @@ const PreviewPage: React.FC = () => {
                         onToggleFitToWidth={() => setFitToWidth(!fitToWidth)}
                         defaultZoom={defaultZoom}
                         onSetDefaultZoom={setDefaultZoom}
+                        autoReload={autoReload}
+                        onToggleAutoReload={() => setAutoReload(!autoReload)}
                         onResetAll={resetAll}
                     />
                 </div>
@@ -214,6 +217,7 @@ const PreviewPage: React.FC = () => {
                 activeTabId={activeTab}
                 url={url}
                 fitToWidth={fitToWidth}
+                autoReload={autoReload}
                 onRotate={rotateDevice}
                 onRemove={removeDevice}
                 onZoomChange={updateZoom}
