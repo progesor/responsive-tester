@@ -66,6 +66,17 @@ npm install
 npm run dev
 ```
 
+### 4. Build & Preview the PWA
+
+```bash
+npm run build
+npm run preview
+```
+
+The preview server runs the production build with the PWA service worker
+enabled. Open the printed URL in your browser and you should see an option
+to install the app.
+
 ---
 
 ## 🗺️ Roadmap
