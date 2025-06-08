@@ -30,6 +30,13 @@ const PreviewPage: React.FC = () => {
     const [showSettings, setShowSettings] = useState(false);
     const [defaultZoom, setDefaultZoom] = usePersistedState<number>('default-zoom', 1);
 
+    // Ensure active tab always refers to an existing device
+    useEffect(() => {
+        if (!devices.some((d) => d.id === activeTab)) {
+            setActiveTab(devices[0]?.id || '');
+        }
+    }, [devices, activeTab]);
+
 
 
     // Auto-restore last used preset
@@ -108,6 +115,7 @@ const PreviewPage: React.FC = () => {
             setLayout(selected.layout);
             setFitToWidth(selected.fitToWidth);
             setDevices(selected.devices);
+            setActiveTab(selected.devices[0]?.id || '');
             setLastUsedPreset(name);
         }
     };
