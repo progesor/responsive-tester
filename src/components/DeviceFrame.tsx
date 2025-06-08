@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import html2canvas from 'html2canvas';
+import toast from 'react-hot-toast';
 
 interface Props {
     id: string;
@@ -46,11 +48,37 @@ const DeviceFrame: React.FC<Props> = ({
         setReloadKey(Date.now());
     };
 
+
+    const handleScreenshot = async () => {
+        if (!frameRef.current) return;
+        const canvas = await html2canvas(frameRef.current, { backgroundColor: null });
+        canvas.toBlob(async (blob) => {
+            if (!blob) return;
+            const urlObj = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = urlObj;
+            link.download = `${name}.png`;
+            link.click();
+
+            try {
+                await navigator.clipboard.write([
+                    new ClipboardItem({ 'image/png': blob }) as unknown as ClipboardItem
+                ]);
+                toast.success('Screenshot copied to clipboard');
+            } catch (err) {
+                console.error('Clipboard copy failed', err);
+            }
+
+            setTimeout(() => URL.revokeObjectURL(urlObj), 100);
+        });
+    };
+
     useEffect(() => {
         if (autoReload) {
             setReloadKey(Date.now());
         }
     }, [url, isLandscape, autoReload]);
+
 
     const scaleStyle = fitToWidth
         ? {
@@ -94,6 +122,13 @@ const DeviceFrame: React.FC<Props> = ({
                     className="text-xs bg-blue-600 text-white px-2 py-0.5 rounded hover:bg-blue-700"
                 >
                     🔄
+                </button>
+                <button
+                    onClick={handleScreenshot}
+                    title="Screenshot"
+                    className="text-xs bg-purple-600 text-white px-2 py-0.5 rounded hover:bg-purple-700"
+                >
+                    📸
                 </button>
             </div>
 
