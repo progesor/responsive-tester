@@ -14,6 +14,7 @@ interface Props {
     fitToWidth?: boolean;
     zoom?: number;
     onZoomChange?: (zoom: number) => void;
+    autoReload?: boolean;
 }
 
 const DeviceFrame: React.FC<Props> = ({
@@ -26,6 +27,7 @@ const DeviceFrame: React.FC<Props> = ({
                                           onRemove,
                                           fitToWidth,
                                           zoom: initialZoom = 1,
+                                          autoReload,
                                       }) => {
     const w = isLandscape ? height : width;
     const h = isLandscape ? width : height;
@@ -45,6 +47,7 @@ const DeviceFrame: React.FC<Props> = ({
     const handleReload = () => {
         setReloadKey(Date.now());
     };
+
 
     const handleScreenshot = async () => {
         if (!frameRef.current) return;
@@ -69,6 +72,13 @@ const DeviceFrame: React.FC<Props> = ({
             setTimeout(() => URL.revokeObjectURL(urlObj), 100);
         });
     };
+
+    useEffect(() => {
+        if (autoReload) {
+            setReloadKey(Date.now());
+        }
+    }, [url, isLandscape, autoReload]);
+
 
     const scaleStyle = fitToWidth
         ? {

@@ -69,6 +69,17 @@ npm install
 npm run dev
 ```
 
+### 4. Build & Preview the PWA
+
+```bash
+npm run build
+npm run preview
+```
+
+The preview server runs the production build with the PWA service worker
+enabled. Open the printed URL in your browser and you should see an option
+to install the app.
+
 ---
 
 ## 🗺️ Roadmap
@@ -82,7 +93,7 @@ npm run dev
 | ✅ | Combined modal-based preset manager |
 | ✅ | Custom device creation |
 | ✅ | Settings panel for default preferences |
-| ⏳ | Auto-reload iframe toggle |
+| ✅ | Auto-reload iframe toggle |
 | ✅ | Enhanced screenshot capability |
 | ⏳ | Electron version (Desktop App) |
 | ⏳ | PWA support (Installable Web App) |
